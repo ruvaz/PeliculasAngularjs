@@ -1,0 +1,24 @@
+<p>Peliculas list component</p>
+
+<p>Listado de peliculas</p>
+<button (click)="onShowHide()" [class.showingData]="mostrarDatos ===true">Mostrar Datos</button>
+<button (click)="onShowHide()" [class.showingData]="mostrarDatos ===false">Ocultar Datos</button>
+<ul *ngIf="mostrarDatos=== true">
+    <li><b>Nombre: </b>{{pelicula.titulo}}</li>
+    <li><b>Director: </b>{{pelicula.director}}</li>
+    <li><b>Anio:</b> {{pelicula.anio}}</li>
+</ul>
+<p>
+    Cambiar titulo de Pelicula:
+    <input type="text" (keypress)="debug()" [(ngModel)]="pelicula.titulo">
+</p>
+<hr>
+<p>Listado de peliculas</p>
+<ul>
+
+    <ul *ngFor="#pelicula of peliculas" style="margin-bottom: 20px;">
+        <li (click)="onCambiarPelicula(pelicula)" class="pelicula-title" [class.clicked]="peliculaElegida.id===pelicula.id"><b>Nombre: </b>{{pelicula.titulo}}</li>
+        <li><b>Director: </b>{{pelicula.director}}</li>
+        <li *ngIf="pelicula.anio"><b>Anio:</b> {{pelicula.anio}}</li>
+    </ul>
+</ul>
