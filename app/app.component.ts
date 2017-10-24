@@ -21,17 +21,10 @@ import {Pelicula} from "./model/pelicula";
     }
 )
 
-@RouterConfig(
-    {
-{ 'path':'/peliculas',
-        'name':'Peliculas',
-    'component':PeliculasListComponent,
-    'useAsDefault':true },
-},
-);
+@RouteConfig([
+    {path:"/peliculas",name:"Peliculas",component:PeliculasListComponent, useAsDefault:true}
+])
 
-
-@RouteConfig
 
 // Clase del componente donde iran los datos y funcionalidades
 export class AppComponent {

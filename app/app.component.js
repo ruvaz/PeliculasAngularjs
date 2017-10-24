@@ -1,4 +1,4 @@
-System.register(["angular2/router"], function(exports_1, context_1) {
+System.register(['angular2/core', "./components/peliculas-list.component", "./components/peliculas-footer.component", "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,22 +10,38 @@ System.register(["angular2/router"], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var router_1;
+    var core_1, peliculas_list_component_1, peliculas_footer_component_1, router_1, router_2;
     var AppComponent;
     return {
         setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (peliculas_list_component_1_1) {
+                peliculas_list_component_1 = peliculas_list_component_1_1;
+            },
+            function (peliculas_footer_component_1_1) {
+                peliculas_footer_component_1 = peliculas_footer_component_1_1;
+            },
             function (router_1_1) {
                 router_1 = router_1_1;
+                router_2 = router_1_1;
             }],
         execute: function() {
             // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
-            ;
             AppComponent = (function () {
                 function AppComponent() {
                     this.titulo = "Peliculas con angular2";
                 }
                 AppComponent = __decorate([
-                    router_1.RouteConfig, 
+                    core_1.Component({
+                        selector: 'my-app',
+                        templateUrl: "app/view/peliculas.html",
+                        directives: [peliculas_list_component_1.PeliculasListComponent, peliculas_footer_component_1.FooterComponent, router_1.ROUTER_DIRECTIVES] //array de todos los componentes que se desean utilizar
+                    }),
+                    router_2.RouteConfig([
+                        { path: "/peliculas", name: "Peliculas", component: peliculas_list_component_1.PeliculasListComponent, useAsDefault: true }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
