@@ -4,7 +4,6 @@ body{
 h1 {
     font-family: "Arial Black";
     color: #444444;
-    text-decoration: underline;
 }
 .showingData{
     display:none;

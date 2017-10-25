@@ -2,27 +2,31 @@
 import {Component} from 'angular2/core';
 // import {Pelicula} from './model/pelicula';
 import {PeliculasListComponent} from "./components/peliculas-list.component";
-import {FooterComponent} from "./components/peliculas-footer.component";
+import {FooterComponent} from   "./components/peliculas-footer.component";
+import {ContactoComponent} from "./components/contacto.component";
+
 
 //configurar rutas
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from "angular2/router";
+import {ROUTER_DIRECTIVES,RouteConfig, Router} from "angular2/router";
 
-import {RouteConfig} from "angular2/router";
-
-import {Router} from "angular2/router";
-import {Pelicula} from "./model/pelicula";
 
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 @Component(
     {
         selector: 'my-app',
-        templateUrl: `app/view/peliculas.html`,
-        directives: [PeliculasListComponent, FooterComponent, ROUTER_DIRECTIVES] //array de todos los componentes que se desean utilizar
+        templateUrl: 'app/view/peliculas.html',
+        directives: [
+            PeliculasListComponent,
+            FooterComponent,
+            ContactoComponent,
+            ROUTER_DIRECTIVES
+        ] //array de todos los componentes que se desean utilizar
     }
 )
 
 @RouteConfig([
-    {path:"/peliculas",name:"Peliculas",component:PeliculasListComponent, useAsDefault:true}
+    {path:"/peliculas",name:"PeliculasUrl",component:PeliculasListComponent, useAsDefault:true},
+    {path:"/contacto",name:"ContactoUrl",component:ContactoComponent}
 ])
 
 
