@@ -2,11 +2,11 @@
 <nav>
     <ul>
         <li><a [routerLink]="['PeliculasUrl']">Inicio</a></li>
-        <li><a ></a>Add Peliculas</li>
+        <li><a [routerLink]="['CrearPeliculaUrl']">Crear Pelicula</a></li>
         <li><a [routerLink]="['ContactoUrl']">Contacto</a></li>
     </ul>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet>Cargando...</router-outlet>
 
 <peliculas-footer></peliculas-footer>

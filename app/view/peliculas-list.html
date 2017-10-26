@@ -17,8 +17,9 @@
 <ul>
 
     <ul *ngFor="#pelicula of peliculas" style="margin-bottom: 20px;">
-        <li (click)="onCambiarPelicula(pelicula)" class="pelicula-title" [class.clicked]="peliculaElegida.id===pelicula.id"><b>Nombre: </b>{{pelicula.titulo}}</li>
+        <li (click)="onCambiarPelicula(pelicula)" class="pelicula-title" [class.clicked]="peliculaElegida.titulo == pelicula.titulo"><b>Nombre: </b>{{pelicula.titulo}}</li>
         <li><b>Director: </b>{{pelicula.director}}</li>
         <li *ngIf="pelicula.anio"><b>Anio:</b> {{pelicula.anio}}</li>
+        <li><a [routerLink]="['CrearPeliculaOtraUrl',{titulo:pelicula.titulo,director:pelicula.director,anio:pelicula.anio}]">Añadir pelicula basada en esta</a></li>
     </ul>
 </ul>
